@@ -1,1 +1,3 @@
-# buddiey-builders
+# Buddiey
+
+This is our Buddiey project
