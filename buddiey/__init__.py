@@ -1,7 +1,7 @@
-import os
-
 from flask import Flask
-
+from .main.path import main
+from .extensions import mongo
+import os
 
 def create_app(test_config=None):
     # create and configure the app
@@ -9,6 +9,13 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='36ybermission30',
     )
+
+    app.config['MONGO_URI'] = "mongodb+srv://ronit:taj529klts@buddieychat.rohd2.mongodb.net/users?retryWrites=true&w=majority"
+
+    mongo.init_app(app)
+
+    app.register_blueprint(main)
+
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -22,10 +29,5 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
-    # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return 'Beginning of Buddiey'
 
     return app
