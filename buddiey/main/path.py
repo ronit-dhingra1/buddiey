@@ -11,6 +11,10 @@ def entry_point():
 def login():
     return render_template('index.html')
 
+@main.route('/signup')
+def signup():
+    return render_template('signup.html')
+
 # Website Error Messages
 @main.errorhandler(404)
 def page_not_found(e):
