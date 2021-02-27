@@ -185,3 +185,9 @@
   label[class=tip] {
       text-align: center !important;
   }
+
+  .buddiey-logo {
+    max-width: 100%;
+    text-align: center;
+    padding: 20px;
+  }

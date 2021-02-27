@@ -5,9 +5,9 @@ main = Blueprint('main', __name__)
 # Entry point of application
 @main.route('/')
 def entry_point():
-    return redirect("/login")
+    return redirect('/signin')
 
-@main.route('/login')
+@main.route('/signin')
 def login():
     return render_template('index.html')
 
