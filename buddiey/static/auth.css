@@ -3,6 +3,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 /* Setup */
 :root {
@@ -32,7 +33,7 @@
   body {
     margin: 0;
     min-height: 100vh;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--black);
@@ -156,7 +157,7 @@
     font-weight: 600;
     text-decoration: none;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     outline: none;
     cursor: pointer;
     display: inline-block;
