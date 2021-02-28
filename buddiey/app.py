@@ -1,19 +1,9 @@
 from flask import Flask
 from functools import wraps
-from .main.path import main
+from main.path import main
 import pymongo
-from .extensions import mongo
+from extensions import mongo
 import os
-
-def login_required(f):
-  @wraps(f)
-  def wrap(*args, **kwargs):
-    if 'logged_in' in session:
-      return f(*args, **kwargs)
-    else:
-      return redirect('/')
-  
-  return wrap
 
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_mapping(

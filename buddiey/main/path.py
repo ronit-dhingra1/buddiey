@@ -1,14 +1,26 @@
 from flask import Blueprint, render_template, redirect
-from buddiey.app import login_required
+from functools import wraps 
 
 main = Blueprint('main', __name__)
+
+
+def login_required(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      return redirect('/')
+  
+  return wrap
+
 
 # Entry point of application
 @main.route('/')
 def entry_point():
     return render_template('index.html')
 
-@main.route(/chat/)
+@main.route('/chat/')
 @login_required
 def chat():
     return render_template('chat.html')
