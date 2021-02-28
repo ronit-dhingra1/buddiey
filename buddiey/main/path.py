@@ -1,18 +1,17 @@
 from flask import Blueprint, render_template, redirect
-
-
-#and this
+from buddiey.app import login_required
 
 main = Blueprint('main', __name__)
 
 # Entry point of application
 @main.route('/')
 def entry_point():
-    return redirect('/signin')
-
-@main.route('/signin')
-def login():
     return render_template('index.html')
+
+@main.route(/chat/)
+@login_required
+def chat():
+    return render_template('chat.html')
 
 @main.route('/signup')
 def signup():
