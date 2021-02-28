@@ -23,6 +23,10 @@
     --red: #EF4836;
     --blue: #00A3FF;
     --mint: #00FFA3;
+    --coral: #FF7F50;
+    --pink: #FA94FC;
+    --main-body: linear-gradient(to bottom left, var(--blue), var(--mint));
+    --coral-body: linear-gradient(to bottom left, var(--coral), var(--pink));
   }
   
   * {
@@ -37,7 +41,7 @@
     font-size: 18px;
     line-height: 28px;
     color: var(--black);
-    background-image: linear-gradient(to bottom left, var(--blue), var(--mint));
+    background-image: var(--main-body);
   }
   
   /* Typography */
