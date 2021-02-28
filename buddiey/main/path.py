@@ -1,5 +1,8 @@
 from flask import Blueprint, render_template, redirect
 
+
+#and this
+
 main = Blueprint('main', __name__)
 
 # Entry point of application
