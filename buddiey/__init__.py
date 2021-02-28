@@ -3,6 +3,8 @@ from .main.path import main
 from .extensions import mongo
 import os
 
+# yay it's fixed
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
