@@ -47,5 +47,5 @@ def signout():
     return User().signout()
   
 @main.route ('/user/signup', methods=['POST'])
-def signup():
+def signup_user():
     return User().signup()
