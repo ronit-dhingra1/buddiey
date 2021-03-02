@@ -37,3 +37,15 @@ def page_not_found(e):
 @main.errorhandler(403)
 def forbidden_access(e):
     return render_template('403.html'), 403
+
+@main.route ('/user/signin', methods=['POST'])
+def signin():
+    return User().signin()
+
+@main.route ('/user/signout')
+def signout():
+    return User().signout()
+  
+@main.route ('/user/signup', methods=['POST'])
+def signup():
+    return User().signup()

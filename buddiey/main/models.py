@@ -39,7 +39,7 @@ class User:
     session.clear()
     return redirect('/')
   
-  def login(self):
+  def signin(self):
 
     user = users_db.users.find_one({
       "email": request.form.get('email')
