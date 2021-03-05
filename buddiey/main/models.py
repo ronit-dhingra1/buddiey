@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
-from app import users_db
+from buddiey import users_db
 import uuid
 
 class User:

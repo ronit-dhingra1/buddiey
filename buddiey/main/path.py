@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, redirect
-from functools import wraps 
+from functools import wraps
+from .models import User 
 
-main = Blueprint('main', __name__)
+path = Blueprint('main', __name__)
 
 
 def login_required(f):
@@ -16,36 +17,36 @@ def login_required(f):
 
 
 # Entry point of application
-@main.route('/')
+@path.route('/')
 def entry_point():
     return render_template('index.html')
 
-@main.route('/chat/')
+@path.route('/chat/')
 @login_required
 def chat():
     return render_template('chat.html')
 
-@main.route('/signup')
+@path.route('/signup')
 def signup():
     return render_template('signup.html')
 
 # Website Error Messages
-@main.errorhandler(404)
+@path.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
-@main.errorhandler(403)
+@path.errorhandler(403)
 def forbidden_access(e):
     return render_template('403.html'), 403
 
-@main.route ('/user/signin', methods=['POST'])
+@path.route ('/user/signin', methods=['POST'])
 def signin():
     return User().signin()
 
-@main.route ('/user/signout')
+@path.route ('/user/signout')
 def signout():
     return User().signout()
   
-@main.route ('/user/signup', methods=['POST'])
+@path.route ('/user/signup', methods=['POST'])
 def signup_user():
     return User().signup()

@@ -1,6 +1,6 @@
 from flask import Flask
 from functools import wraps
-from main.path import main
+from main.path import path
 import pymongo
 from extensions import mongo
 import os
@@ -14,7 +14,7 @@ app.config.from_mapping(
 mongo.init_app(app)
 
 client = pymongo.MongoClient('mongodb+srv://ronit:taj529klts@buddieychat.rohd2.mongodb.net/users?retryWrites=true&w=majority')
-users_db = client.users
-chat_db = client.chats
+users_db = client['users']
+chat_db = client['chats']
 
 app.register_blueprint(main)
