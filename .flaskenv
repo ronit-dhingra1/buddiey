@@ -1,2 +1,2 @@
-FLASK_APP=buddiey/app.py
+FLASK_APP=buddiey
 FLASK_ENV=development
