@@ -16,8 +16,19 @@ def login_required(f):
   return wrap
 
 
+def currently_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'not_guest' in session:
+            return f(*args, **kwargs)
+        else:
+            return redirect('/chat/')
+    
+    return wrap
+
 # Entry point of application
 @path.route('/')
+@currently_logged_in
 def entry_point():
     return render_template('index.html')
 

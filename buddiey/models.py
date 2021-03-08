@@ -3,12 +3,12 @@ from passlib.hash import pbkdf2_sha256
 from buddiey.constants import users_db
 import uuid
 
-
 class User:
 
   def start_session(self, user):
     del user['password']
     session['logged_in'] = True
+    session['not_guest'] = True
     session['user'] = user
     return jsonify(user), 200
 
