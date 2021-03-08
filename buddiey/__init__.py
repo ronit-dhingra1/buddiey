@@ -1,6 +1,6 @@
 from flask import Flask
 from functools import wraps
-from main.path import path
+from buddiey import path
 import pymongo
 from extensions import mongo
 import os
