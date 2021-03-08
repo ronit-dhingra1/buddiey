@@ -1,8 +1,7 @@
 from flask import Flask
 from functools import wraps
-from buddiey import path
+from buddiey import links
 import pymongo
-from extensions import mongo
 import os
 
 app = Flask(__name__, instance_relative_config=True)
@@ -11,10 +10,8 @@ app.config.from_mapping(
     MONGO_URI="mongodb+srv://ronit:taj529klts@buddieychat.rohd2.mongodb.net/users?retryWrites=true&w=majority"
 )
 
-mongo.init_app(app)
-
 client = pymongo.MongoClient('mongodb+srv://ronit:taj529klts@buddieychat.rohd2.mongodb.net/users?retryWrites=true&w=majority')
 users_db = client['users']
 chat_db = client['chats']
 
-app.register_blueprint(main)
+app.register_blueprint(links.path)
