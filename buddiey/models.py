@@ -50,3 +50,8 @@ class User:
       return self.start_session(user)
     
     return jsonify({ "error": "Invalid login credentials" }), 401
+  
+  def send_message(self):
+    message = {
+      'message': request.form.get('message-box')
+    }

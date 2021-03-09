@@ -28,7 +28,6 @@ def currently_logged_in(f):
 
 # Entry point of application
 @path.route('/')
-@currently_logged_in
 def entry_point():
     return render_template('index.html')
 
@@ -50,14 +49,18 @@ def page_not_found(e):
 def forbidden_access(e):
     return render_template('403.html'), 403
 
-@path.route ('/user/signin', methods=['POST'])
+@path.route('/user/signin', methods=['POST'])
 def signin():
     return User().signin()
 
-@path.route ('/user/signout')
+@path.route('/user/signout')
 def signout():
     return User().signout()
   
-@path.route ('/user/signup', methods=['POST'])
+@path.route('/user/signup', methods=['POST'])
 def signup_user():
     return User().signup()
+
+@path.route('/user/chat/send', methods=['POST'])
+def send_chat():
+    return User().send_message()
