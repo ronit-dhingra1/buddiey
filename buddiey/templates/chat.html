@@ -1,12 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1 class="intro">Placeholder for Buddiey Chat View</h1>
-</body>
+<!DOCTYPE html> 
+<html Lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Buddiey - Chat</title>
+        <link rel="shortcut icon" href="../static/Buddiey.ico"/>
+        <link rel="stylesheet" href="../static/chat.css"/>
+    </head>
+    <body>
+        <div class="column">
+      <main>
+        <section class="glass">
+          <div class="chatview">
+            <div class="buddiey-text">Hi! I'm Buddiey!  What's your name?</div>
+            <div class="users-text"></div>
+          </div>
+          <div class="container">
+          <div class="column">
+          <div>
+            <button class="button1">Log Out</button>
+          </div>
+          <div>
+            <button class="button2" onclick="window.location.href='https://www.buddiey.live';">About</button>
+            </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <form name="chatbox">
+        <label for="Chat with Buddiey!"></label>
+        <input class="msg-box" placeholder="     Enter Text Here" type="text" id="Chat with Buddiey!" />
+        <button class="send">   Send   </button>
+      </form>
+    </body>
 </html>
