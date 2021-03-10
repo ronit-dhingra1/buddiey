@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, session
+from flask import Blueprint, render_template, redirect, session, request
 from functools import wraps
 from .models import User 
 
@@ -64,3 +64,9 @@ def signup_user():
 @path.route('/user/chat/send', methods=['POST'])
 def send_chat():
     return User().send_message()
+
+@path.route('/user/chat/pass_sentiment', methods=['POST'])
+@login_required
+def pass_sentiment():
+    sentiment = request.args.get('value')
+    return jsonify({'sentiment': sentiment}), 200

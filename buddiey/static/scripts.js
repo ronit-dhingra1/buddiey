@@ -48,14 +48,17 @@ $("form[name=signup_form").submit(function(e) {
     var data = $form.serialize();
 
     $.ajax({
-      url: "https://api.buddiey.live/chat/",
+      url: "https://api.buddiey.live",
       type: "POST",
       data: data,
       dataType: "json",
       success: function(resp) {
-        var msg = JSON.parse(resp)
-        msg = msg.resp_msg
-        
+        var respString = JSON.stringify(resp);
+        var input = JSON.parse(respString);
+        console.log(input);
+        var sentiment = input.sentiment;
+        console.log(sentiment);
+        pass_values(sentiment)
       },
       error: function(resp) {
         console.log('o no if anyding went rong etan must ave rote dis code');
@@ -64,3 +67,21 @@ $("form[name=signup_form").submit(function(e) {
 
     e.preventDefault();
   });
+
+function pass_values(sentiment) {
+  $.ajax({
+    type:'POST',
+    dataType:'json',
+    url: 'http://127.0.0.1:5000/user/chat/pass_sentiment?value='+sentiment,
+    success:function(resp) {
+      var reply = resp.reply;
+      if(reply=="success") {
+        return;
+      }
+      else {
+        alert("Something went wrong with the app, sorry for the inconvenience")
+      }
+    }
+  })
+}
+
