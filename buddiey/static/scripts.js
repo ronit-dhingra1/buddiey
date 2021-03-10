@@ -61,7 +61,7 @@ $("form[name=signup_form").submit(function(e) {
         pass_values(sentiment)
       },
       error: function(resp) {
-        console.log('o no if anyding went rong etan must ave rote dis code');
+        console.log(`Something went wrong, error: ${resp.responseJSON.error}`);
       }
     });
 
@@ -72,7 +72,7 @@ function pass_values(sentiment) {
   $.ajax({
     type:'POST',
     dataType:'json',
-    url: 'http://127.0.0.1:5000/user/chat/pass_sentiment?value='+sentiment,
+    url: '/user/chat/pass_sentiment?value='+sentiment,
     success:function(resp) {
       var reply = resp.reply;
       if(reply=="success") {
