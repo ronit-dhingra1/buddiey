@@ -28,6 +28,7 @@ def currently_logged_in(f):
 
 # Entry point of application
 @path.route('/')
+@currently_logged_in
 def entry_point():
     return render_template('index.html')
 
@@ -37,6 +38,7 @@ def chat():
     return render_template('chat.html')
 
 @path.route('/signup')
+@currently_logged_in
 def signup():
     return render_template('signup.html')
 

@@ -84,4 +84,3 @@ function pass_values(sentiment) {
     }
   })
 }
-
