@@ -23,12 +23,13 @@ def currently_logged_in(f):
             return f(*args, **kwargs)
         else:
             return redirect('/chat/')
-    
+
     return wrap
 
 # Entry point of application
 @path.route('/')
 def entry_point():
+    User().start()
     return render_template('index.html')
 
 @path.route('/chat/')
@@ -38,6 +39,7 @@ def chat():
 
 @path.route('/signup')
 def signup():
+
     return render_template('signup.html')
 
 # Website Error Messages
@@ -70,3 +72,8 @@ def send_chat():
 def pass_sentiment():
     sentiment = request.args.get('value')
     return jsonify({'sentiment': sentiment}), 200
+
+@path.route('/user/chat/sentiment', methods=['POST'])
+def get_sentiment():
+    msg = request.form.get('msg-box')
+    return User().get_sentiment(msg)

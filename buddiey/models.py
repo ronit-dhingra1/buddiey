@@ -1,7 +1,10 @@
-from flask import Flask, jsonify, request, session, redirect, request
+from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
 from buddiey.constants import users_db
+import json
 import uuid
+import requests
+import re
 
 class User:
 
@@ -55,3 +58,17 @@ class User:
     message = {
       'message': request.form.get('message-box')
     }
+  
+  def start(self):
+    session.clear()
+    return jsonify({'status': 'ok'}), 200
+  
+  def get_sentiment(self, msg):
+    params = {
+      'msg': msg
+    }
+    self.url = 'https://api.buddiey.live'
+    sentiment = requests.post(url, params)
+    sentiment = json.dumps(sentiment)
+    sentiment = json.loads(sentiment)
+    return jsonify(sentiment), 200

@@ -25,7 +25,7 @@ $("form[name=signup_form").submit(function(e) {
     var $form = $(this);
     var $error = $form.find(".error");
     var data = $form.serialize();
-  
+    
     $.ajax({
       url: "/user/signin",
       type: "POST",
@@ -84,3 +84,25 @@ function pass_values(sentiment) {
     }
   })
 }
+
+/*
+$('form[name=chatbox').submit(function(e) {
+  var $form = $(this);
+  var data = $form.serialize();
+  
+  $.ajax({
+    url: '/user/chat/sentiment',
+    type: 'POST',
+    data: data,
+    dataType: 'json',
+    success:function(resp) {
+      console.log('Yay it works!');
+    },
+    error:function(resp) {
+      console.log(`Error: ${resp.responseJSON.error}`);
+    }
+  });
+
+  e.preventDefault();
+});
+*/

@@ -6,6 +6,7 @@
         <title>Buddiey - Chat</title>
         <link rel="shortcut icon" href="../static/Buddiey.ico"/>
         <link rel="stylesheet" href="../static/chat.css"/>
+        <script src="../static/jquery.js"></script>
     </head>
     <body>
         <div class="column">
@@ -30,9 +31,25 @@
       <div class="circle1"></div>
       <div class="circle2"></div>
       <form name="chatbox">
-        <label for="Chat with Buddiey!"></label>
-        <input class="msg-box" placeholder="     Enter Text Here" type="text" id="Chat with Buddiey!" />
-        <button class="send">   Send   </button>
+        <div id="chatbox">
+          <label for="Chat with Buddiey!"></label>
+          <input id='msg-box' class="msg-box" placeholder="     Enter Text Here" type="text" id="Chat with Buddiey!" />
+          <button class="send"> Send </button>
+        </div>
       </form>
+      <script type="text/javascript">
+        function getBotResponse() {
+          var rawText = $('.msg-box').val();
+          var userHtml = '<div class="users-text"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('msg-box').value = "";
+          document.getElementById('chatbox').scrollIntoView({block: 'start', behavior: 'smooth'});
+        }
+        $('form[name=chatbox').submit(function(e) {
+          getBotResponse();
+          e.preventDefault();
+        });
+      </script>
     </body>
 </html>
