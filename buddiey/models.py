@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
-from buddiey.constants import users_db
+from buddiey.constants import users_db, chat_db, questions
 import json
 import uuid
 import requests
@@ -56,8 +56,15 @@ class User:
   
   def send_message(self):
     message = {
-      'message': request.form.get('message-box')
+      'message': request.form.get('msg')
     }
+
+    count = request.form.get('count')
+    resp_msg = questions[0+int(count)]
+
+     # TODO: Write database connection rules (see reference code from authentication)
+
+    return jsonify({'resp_msg': resp_msg})
   
   def start(self):
     session.clear()

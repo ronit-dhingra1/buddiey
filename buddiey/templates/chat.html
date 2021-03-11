@@ -13,7 +13,7 @@
       <main>
         <section class="glass">
           <div class="chatview">
-            <div class="buddiey-text" id="buddiey-text">Hi! I'm Buddiey!  What's your name?</div>
+            <div class="buddiey-text" id="buddiey-text">Hi! I'm Buddiey! What's your name?</div>
             <div class="users-text" id="users-text"></div>
           </div>
           <div class="container">
@@ -38,6 +38,9 @@
         </div>
       </form>
       <script type="text/javascript">
+        // Keeping count of the amount of times the user clicks the button
+        var count=0;
+
         function getBotResponse() {
           // Creating a new div block with the user's text
           var rawText = $('.msg-box').val();
@@ -53,11 +56,43 @@
           // Final wrap ups
           document.getElementById('msg-box').value = "";
           document.getElementById('chatbox').scrollIntoView({block: 'start', behavior: 'smooth'});
+
+          return rawText;
         }
 
         // Call the function when the user hits the send button on the chat view
         $('form[name=chatbox').submit(function(e) {
-          getBotResponse();
+          // Incrementing count by 1 every time the user hits send          
+          count += 1
+          console.log(count)
+
+          // Getting the user's input and formatting it for API calls
+          const user_input = getBotResponse();
+          var data = {
+            "count": count,
+            "msg": user_input,
+          };
+
+          // Sending the POST request to the local API, then extracting the response and showing it to the user
+          $.ajax({
+            url: '/user/chat/send',
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function(resp) {
+              const respString = JSON.stringify(resp);
+              const respJSON = JSON.parse(respString);
+              console.log(respJSON);
+              const respMsg = respJSON.resp_msg;
+              console.log(respMsg);
+
+              var buddieyHtml = '<div class="buddiey-text"><span>' + respMsg + '</span></p>';
+
+              $('.buddiey-text').remove();
+              $('#chatbox').append(buddieyHtml);
+            },
+          });
+
           e.preventDefault();
         });
       </script>

@@ -39,7 +39,7 @@ def chat():
 
 @path.route('/signup')
 def signup():
-
+    User().start()
     return render_template('signup.html')
 
 # Website Error Messages
