@@ -13,8 +13,8 @@
       <main>
         <section class="glass">
           <div class="chatview">
-            <div class="buddiey-text">Hi! I'm Buddiey!  What's your name?</div>
-            <div class="users-text"></div>
+            <div class="buddiey-text" id="buddiey-text">Hi! I'm Buddiey!  What's your name?</div>
+            <div class="users-text" id="users-text"></div>
           </div>
           <div class="container">
           <div class="column">
@@ -39,13 +39,23 @@
       </form>
       <script type="text/javascript">
         function getBotResponse() {
+          // Creating a new div block with the user's text
           var rawText = $('.msg-box').val();
           var userHtml = '<div class="users-text"><span>' + rawText + '</span></p>';
           $("#textInput").val("");
+          
+          // Removing the existing div block
+          $('.users-text').remove();
+
+          // Finishing to create the new div block
           $("#chatbox").append(userHtml);
+
+          // Final wrap ups
           document.getElementById('msg-box').value = "";
           document.getElementById('chatbox').scrollIntoView({block: 'start', behavior: 'smooth'});
         }
+
+        // Call the function when the user hits the send button on the chat view
         $('form[name=chatbox').submit(function(e) {
           getBotResponse();
           e.preventDefault();
