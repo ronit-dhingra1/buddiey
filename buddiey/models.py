@@ -8,12 +8,14 @@ import re
 
 class User:
 
-  def start_session(self, user):
+  def start_session(self, user, uid):
     del user['password']
     session['logged_in'] = True
     session['not_guest'] = True
     session['user'] = user
+    session['uid'] = uid
     return jsonify(user), 200
+
 
   def signup(self):
     print(request.form)
@@ -24,7 +26,8 @@ class User:
       "first-name": request.form.get('first-name'),
       "last-name": request.form.get('last-name'),
       "email": request.form.get('email'),
-      "password": request.form.get('password')
+      "password": request.form.get('password'),
+      "uid": uuid.uuid5().hex
     }
 
     # Encrypt the password
@@ -35,7 +38,7 @@ class User:
       return jsonify({ "error": "Email address already in use" }), 400
 
     if users_db.users.insert_one(user):
-      return self.start_session(user)
+      return self.start_session(user, uid)
 
     return jsonify({ "error": "Signup failed" }), 400
   
@@ -64,8 +67,19 @@ class User:
 
      # TODO: Write database connection rules (see reference code from authentication)
 
-    return jsonify({'resp_msg': resp_msg})
+    # Create the chat object
+    chat = {
+      "_id": uuid.uuid4().hex,
+      "user-msg": request.form.get('user-msg'),
+      "buddiey-msg": request.form.get('buddiey-msg'),
+      "uid": session['uid']
+    }
+
+    if chat_db.chats.insert_one('chat'):
+      return jsonify({'resp_msg': resp_msg})
   
+    return jsonify({'error': 'Saving to the Database failed'}), 401
+
   def start(self):
     session.clear()
     return jsonify({'status': 'ok'}), 200

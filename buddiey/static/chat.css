@@ -183,8 +183,8 @@ left: 20%;
   .buddiey-text{
     display: flex;
     position: absolute;
-    top: 10%;
-   left: 10%;
+    top: -999%;
+   left: -50%;
   }
   .buddiey-text{
     margin: 0%;
@@ -206,7 +206,7 @@ left: 20%;
     display: flex;
     position: absolute;
     top: -800%;
-   right: 10%;
+   right: -45%;
   }
 
   .users-text{
