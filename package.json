@@ -1,0 +1,32 @@
+{
+  "name": "buddiey",
+  "version": "2.0.0",
+  "description": "This is the 2.0.0 channel version for Buddiey, that was originally made in Flask, but redesigned with Node.js and better systems. ",
+  "main": "main.js",
+  "repository": "https://github.com/rdhingra001/buddiey",
+  "author": "Ronit Dhingra, Ethan Howell, Zohaib Baig",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon main.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "mongoose": "^5.12.3",
+    "path": "^0.12.7",
+    "slug": "^4.0.3",
+    "slugify": "^1.5.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "nodemon": "^2.0.7"
+  }
+}
