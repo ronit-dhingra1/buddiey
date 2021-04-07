@@ -39,6 +39,87 @@
         </style>
       </head>
       <body>
-          
+          <div class="container">
+              <section class="glass">
+                  <div class="bubble1"></div>
+                  <div class="bubble2"></div>
+              </section>
+              <section class="chat">
+                  <div class="card">
+                      <div class="card-body">
+                          <a href="#" class="btn btn-danger" id="logout">Log Out</a>
+                          <div id="chatbox">
+
+                            <form action="/chat" name="chatbox" class="form-group" method="post">
+                                <input type="text" name="textbox" id="" class="form-control">
+                                <input type="button" value="Send" class="btn btn-danger"> 
+                             </form>  
+                             
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </div>
+            <script type="text/javascript">
+              // Making sure that introductory text doesn't disappear
+              $('.buddiey-text').value = "Hi! I'm Buddiey!"
+              // Keeping count of the amount of times the user clicks the button
+              var count=0;
+      
+              function getBotResponse() {
+                // Creating a new div block with the user's text
+                var rawText = $('.msg-box').val();
+                var userHtml = '<div class="users-text"><span>' + rawText + '</span></p>';
+                $("#textInput").val("");
+                
+                // Removing the existing div block
+                $('.users-text').remove();
+      
+                // Finishing to create the new div block
+                $("#chatbox").append(userHtml);
+      
+                // Final wrap ups
+                document.getElementById('msg-box').value = "";
+                document.getElementById('chatbox').scrollIntoView({block: 'start', behavior: 'smooth'});
+      
+                return rawText;
+              }
+      
+              // Call the function when the user hits the send button on the chat view
+              $('form[name=chatbox').submit(function(e) {
+                // Incrementing count by 1 every time the user hits send          
+                count += 1
+                console.log(count)
+      
+                // Getting the user's input and formatting it for API calls
+                const user_input = getBotResponse();
+                var data = {
+                  "count": count,
+                  "msg": user_input,
+                };
+      
+                // Sending the POST request to the local API, then extracting the response and showing it to the user
+                $.ajax({
+                  url: '/user/chat/send',
+                  type: 'POST',
+                  data: data,
+                  dataType: 'json',
+                  success: function(resp) {
+                    const respString = JSON.stringify(resp);
+                    const respJSON = JSON.parse(respString);
+                    console.log(respJSON);
+                    const respMsg = respJSON.resp_msg;
+                    console.log(respMsg);
+      
+                    var buddieyHtml = '<div class="buddiey-text"><span>' + respMsg + '</span></p>';
+      
+                    $('.buddiey-text').remove();
+                    $('#chatbox').append(buddieyHtml);
+                  },
+                });
+      
+                e.preventDefault();
+              });
+            </script>
       </body>
 </html>
