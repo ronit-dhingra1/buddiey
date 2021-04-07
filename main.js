@@ -42,5 +42,7 @@ app.get('/', (req, res) => {
     if (true) res.render('chat/chat');
 });
 
+app.get('/load', (req, res) => res.render('loading'));
+
 // Run server
 app.listen(port, () => console.log(`The Buddiey web app is running at port ${port}`));
