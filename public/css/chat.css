@@ -1,197 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
 * {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.button-wrapper .btn {
-  margin-bottom: 5px;
-}
+
 main {
   min-height: 100vh;
-  background: linear-gradient(to right top, #00d6da, #32eb5b);
+  background: linear-gradient(to right top, #00c4ff, #32eb5b);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.glass {
-  min-height: 90vh;
-  width: 80%;
-  background: linear-gradient(
-    to right bottom,
-    rgba(77, 192, 227, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-  border-radius: 3rem;
-  z-index: 2;
-  backdrop-filter: blur(1rem);
-}
-.circle1,
-.circle2 {
-  background: white;
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0.5)
-  );
-  height: 25rem;
-  width: 25rem;
-  position: absolute;
-  border-radius: 50%;
-}
-.circle1 {
-  bottom: 20%;
-  right: 5%;
-}
-.circle2 {
-  top: 5%;
-  left: 5%;
-}
-.chatview {
-  min-height: 80vh;
-  width: 60%;
-  background: linear-gradient(
+
+.b-card {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  background-image: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
-  border-radius: 3rem;
+  background-clip: border-box;
+  border-radius: 2rem;
+  min-height: 85vh;
+  filter: drop-shadow(0rem 1.5rem 1.5rem rgba(0, 0, 0, 0.25));
   z-index: 2;
-  backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2em);
 }
-.chatview {
-  display: flex;
-  align-content: center;
-  justify-content: center;
+
+.bubble1 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.1)
+  );
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  border-radius: 50%;
+  filter: drop-shadow(0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25));
+}
+
+.bubble2 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.1)
+  );
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  border-radius: 50%;
+  filter: drop-shadow(0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25));
+}
+
+.bubble3 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.1)
+  );
+  width: 20vw;
+  height: 20vw;
   position: absolute;
   bottom: 5%;
-  left: 20%;
-  font-family: "Montserrat";
-  transform: translate(-50%, -50%);
-}
-form {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 15%;
-  left: 40%;
-  z-index: 4;
-  font-size: 18;
-  font-family: "Montserrat";
-  transform: translate(-50%, -50%);
-  border-radius: 3rem;
-}
-.button1 {
-  margin: 5rem;
-  padding: 0rem;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  border: lime;
-  display: flex;
-  position: absolute;
-  top: 20%;
-  border-radius: 2rem;
-  width: 7rem;
-  height: 3rem;
-  font-size: 24;
-  font-family: "Montserrat";
-  font-weight: bold;
-  z-index: 2;
-  backdrop-filter: blur(2rem);
-  background: linear-gradient(
-    to right bottom,
-    rgba(128, 255, 0, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-}
-.button2 {
-  margin: 5rem;
-  padding: 0rem;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  border: red;
-  display: flex;
-  position: absolute;
-  top: 40%;
-  border-radius: 2rem;
-  width: 7rem;
-  height: 3rem;
-  font-size: 24;
-  font-family: "Montserrat";
-  font-weight: bold;
-  z-index: 2;
-  backdrop-filter: blur(2rem);
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 0, 0, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-}
-.send {
-  margin: 0%;
-  padding: 0rem;
-  left: 20%;
-  border: rgb(21, 150, 255);
-  border-top-right-radius: 3rem;
-  border-bottom-right-radius: 3rem;
-  width: 7rem;
-  height: 3rem;
-  font-size: 24;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: white;
-  z-index: 2;
-  align-items: center;
-  backdrop-filter: blur(2rem);
-  background: linear-gradient(
-    to right bottom,
-    rgba(77, 192, 227, 0.9767),
-    rgba(196, 196, 196, 1)
-  );
-}
-.msg-box {
-  height: 3rem;
-  width: 18rem;
-  border-bottom-left-radius: 3rem;
-  border-top-left-radius: 3rem;
-  left: 20%;
-}
-.buddiey-text {
-  display: flex;
-  position: absolute;
-  top: -999%;
-  left: -50%;
-}
-.buddiey-text {
-  margin: 0%;
-  padding: 0rem;
-  min-height: 7vh;
-  width: 25%;
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 127, 80, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-  border-radius: 1rem;
-  z-index: 2;
-  backdrop-filter: blur(2rem);
-}
-.users-text {
-  display: flex;
-  position: absolute;
-  top: -800%;
-  right: -45%;
-}
-.users-text {
-  min-height: 7vh;
-  width: 25%;
-  background: linear-gradient(
-    to right bottom,
-    rgba(21, 150, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
-  border-radius: 1rem;
-  z-index: 2;
-  backdrop-filter: blur(2rem);
+  right: 45%;
+  border-radius: 50%;
+  filter: drop-shadow(0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25));
 }

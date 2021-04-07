@@ -37,7 +37,10 @@ app.use('/auth', authRouter);
 app.use('/chat', chatRouter);
 app.use(express.static("public"));
 
-app.get('/', (req, res) => res.render('chat/chat'));
+// Show the chat view
+app.get('/', (req, res) => {
+    if (true) res.render('chat/chat');
+});
 
 // Run server
 app.listen(port, () => console.log(`The Buddiey web app is running at port ${port}`));
