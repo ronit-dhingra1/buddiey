@@ -48,7 +48,7 @@
                 <div class="signin">
                     <h3 class="mt-2" style="font-family: 'Montserrat'; text-align: center;">Authenticate</h1>
 
-                    <form name="signin_form">
+                    <form action="/auth/signin" method="POST">
                         <div class="email form-group">
                             <label for="email" style="font-family: 'Montserrat';">Email</label>
                             <input type="email" name="email" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="john.doe@example.com" required>
@@ -59,7 +59,9 @@
                             <input type="password" name="password" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="***********" required>
                         </div>
                         
-                        <p class="error error--hidden" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"></p>
+                        <% if (messages.error) { %> 
+                            <p class="error" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"><%= messages.error %></p>
+                        <% } %> 
                         
                         <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
                     </form>

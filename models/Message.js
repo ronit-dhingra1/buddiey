@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 // Create our new schema
 const messageSchema = new mongoose.Schema({
-    username: {
+    email: {
         type: String,
         required: true
     },

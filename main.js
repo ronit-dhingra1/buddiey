@@ -8,6 +8,16 @@ const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+
+// Initialize passport
+const User = require('./models/User');
+const initialize = require('./passport-config');
+initialize(passport, (email) => {
+    const user = User.findOne({ email: email});
+    return user;
+});
 
 // Create important variables
 const app = express(); // Our app instance
@@ -37,6 +47,14 @@ app.use(cookieParser());
 app.use('/auth', authRouter);
 app.use('/chat', chatRouter);
 app.use(express.static("public"));
+app.use(flash());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', (req, res) => res.render('chat/chat'));
 
