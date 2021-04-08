@@ -5,7 +5,7 @@ $("form[name=signup_form").submit(function(e) {
     var data = $form.serialize();
   
     $.ajax({
-      url: "/user/signup",
+      url: "/auth/signup",
       type: "POST",
       data: data,
       dataType: "json",
@@ -27,7 +27,7 @@ $("form[name=signup_form").submit(function(e) {
     var data = $form.serialize();
     
     $.ajax({
-      url: "/user/signin",
+      url: "/auth/signin",
       type: "POST",
       data: data,
       dataType: "json",
@@ -48,7 +48,7 @@ $("form[name=signup_form").submit(function(e) {
     var data = $form.serialize();
 
     $.ajax({
-      url: "https://api.buddiey.live",
+      url: "/",
       type: "POST",
       data: data,
       dataType: "json",
@@ -72,7 +72,7 @@ function pass_values(sentiment) {
   $.ajax({
     type:'POST',
     dataType:'json',
-    url: '/user/chat/pass_sentiment?value='+sentiment,
+    url: '/pass_sentiment?value='+sentiment,
     success:function(resp) {
       var reply = resp.reply;
       if(reply=="success") {

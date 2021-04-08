@@ -39,34 +39,34 @@
     </style>
   </head>
   <body>
-      <div class="container">
-          <div class="card" style="width: 30rem; margin-left: auto; margin-right: auto; margin-top: 5%; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
-              <div class="card-body">
-          
-                  <img src="../../img/Buddiey.gif" alt="Buddiey" class="buddiey-logo pl-3 pr-3">
-  
-                  <div class="signup">
-                      <h3 class="center" style="font-family: 'Montserrat';">Authenticate User</h1>
-  
-                      <form name="signin_form">
-                          <div class="email form-group">
-                              <label for="email" style="font-family: 'Montserrat';">Email</label>
-                              <input type="email" name="email" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" required>
-                          </div>
-                          
-                          <div class="password form-group mt-4">
-                              <label for="password" style="font-family: 'Montserrat';">Password</label>
-                              <input type="password" name="password" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" required>
-                          </div>
-                          
-                          <p class="error error--hidden" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"></p>
-                          
-                          <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
-                      </form>
-                      <label for="tip" style="font-family: 'Montserrat'; ">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
-                  </div>
-              </div>  
-          </div>
-      </div>
+      <main>
+        <section class="b-card">
+            <div class="card-body">
+            
+                <img src="../../img/Buddiey.gif" alt="Buddiey" class="buddiey-logo pl-3 pr-3">
+
+                <div class="signin">
+                    <h3 class="mt-2" style="font-family: 'Montserrat'; text-align: center;">Authenticate</h1>
+
+                    <form name="signin_form">
+                        <div class="email form-group">
+                            <label for="email" style="font-family: 'Montserrat';">Email</label>
+                            <input type="email" name="email" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="john.doe@example.com" required>
+                        </div>
+                        
+                        <div class="password form-group mt-4">
+                            <label for="password" style="font-family: 'Montserrat';">Password</label>
+                            <input type="password" name="password" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="***********" required>
+                        </div>
+                        
+                        <p class="error error--hidden" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"></p>
+                        
+                        <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
+                    </form>
+                    <label for="tip" style="font-family: 'Montserrat'; ">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
+                </div>
+            </div>
+        </section>
+      </main>
   </body>
 </html>

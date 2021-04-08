@@ -8,7 +8,7 @@
 
 main {
   min-height: 100vh;
-  background-image: linear-gradient(to right top, #00d6da, #00ff85);
+  background-image: linear-gradient(to right top, #00ccf2, #32eb5b);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +66,13 @@ main {
 .sidebar {
 }
 
+.chat {
+}
+
 @media screen and (max-width: 767px) {
   .sidebar {
+  }
+
+  .chat {
   }
 }

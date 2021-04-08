@@ -5,111 +5,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-/* Setup */
-:root {
-  --black: #000000;
-  --almost-black: #263238;
-  --white: #ffffff;
-  --almost-white: #fbfbfb;
-  --grey-light: #cfd8dc;
-  --grey: #b0bec5;
-  --grey-medium: #78909c;
-  --grey-dark: #455a64;
-  --primary: #f2f2f2;
-  --primary-shaded: #1e88e5;
-  --primary-dark: #1976d2;
-  --secondary: #cfd8dc;
-  --secondary-dark: #b0bec5;
-  --red: #ef4836;
-  --blue: #00a3ff;
-  --mint: #00ffa3;
-  --coral: #ff7f50;
-  --pink: #fa94fc;
-  --main-body: linear-gradient(to bottom left, var(--blue), var(--mint));
-  --coral-body: linear-gradient(to bottom left, var(--coral), var(--pink));
-}
-
 * {
-  position: relative;
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
-  min-height: 100vh;
-  font-family: "Montserrat" !important;
-  font-size: 18px;
-  line-height: 28px;
-  color: var(--black);
-  background-image: var(--main-body);
-}
-
-/* Typography */
-.center {
-  text-align: center;
-}
-
-h1 {
-  margin: 0.5em 0 1em;
-  font-size: 26px;
-  line-height: 1.2;
-  color: var(--almost-black);
-}
-
-h2 {
-  margin: 0.5em 0 1em;
-  font-size: 20px;
-  line-height: 1.2;
-  color: var(--grey-dark);
-}
-
-p {
-  margin: 24px 0;
-}
-
-/* Forms */
-form {
-  transition: opacity 0.15s ease;
-}
-
-form.loading {
-  pointer-events: none;
-  opacity: 0.75;
-}
-
-label {
-  margin: 0 0 2px;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 1px;
-  color: var(--grey-medium);
-  display: block;
-}
-
-.field {
-  margin: 0 0 24px;
-  padding: 11px 16px 9px;
-  width: 100%;
-  font-size: 16px;
-  line-height: 26px;
-  color: var(--almost-black);
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  display: block;
-  background: var(--almost-white);
-  transition: border-color 0.15s ease;
-}
-
-.field:focus {
-  border-color: var(--grey-medium);
-  outline: none;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .error {
   margin: 0;
   font-size: 16px;
-  line-height: 26px;
   text-align: center;
   color: var(--red);
 }
@@ -118,12 +22,89 @@ label {
   display: none;
 }
 
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to right top, #00ccf2, #32eb5b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-card {
+  display: flex;
+  min-width: 0;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  width: 22.5%;
+  backdrop-filter: blur(2rem);
+  border-radius: 2.25rem;
+  min-height: 60vh;
+  z-index: 2;
+  filter: drop-shadow(0rem 15rem 15rem rgba(0, 0, 0, 0.25));
+}
+
+@media screen and (max-width: 1067px) {
+  .b-card {
+    display: flex;
+    min-width: 0;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    width: 33%;
+    backdrop-filter: blur(2rem);
+    border-radius: 2.25rem;
+    min-height: 60vh;
+    z-index: 2;
+    filter: drop-shadow(0rem 15rem 15rem rgba(0, 0, 0, 0.25));
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .b-card {
+    display: flex;
+    min-width: 0;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    width: 50%;
+    backdrop-filter: blur(2rem);
+    border-radius: 2.25rem;
+    min-height: 60vh;
+    z-index: 2;
+    filter: drop-shadow(0rem 15rem 15rem rgba(0, 0, 0, 0.25));
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .b-card {
+    display: flex;
+    min-width: 0;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    width: 70%;
+    backdrop-filter: blur(2rem);
+    border-radius: 2.25rem;
+    min-height: 60vh;
+    z-index: 2;
+    filter: drop-shadow(0rem 15rem 15rem rgba(0, 0, 0, 0.25));
+  }
+}
+
 /* Buttons */
 .btn-b {
   margin: 0 0 24px;
   padding: 11px 30px 10px;
   font-size: 14px;
-  line-height: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -133,23 +114,13 @@ label {
   outline: none;
   cursor: pointer;
   display: inline-block;
-  background: var(--primary);
-  color: var(--primary-shaded);
   transition: color 0.15s ease, background-color 0.15s ease;
-}
-
-.btn-b:hover {
-  background: var(--primary-shaded);
-  color: var(--white);
-}
-
-.btn--secondary {
-  color: var(--almost-black);
-  background: var(--secondary);
-}
-
-.btn--secondary:hover {
-  background: var(--secondary-dark);
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  filter: drop-shadow(0rem 1.5rem 1.5rem rgba(0, 0, 0, 0.25));
 }
 
 input[type="submit"] {
@@ -157,13 +128,10 @@ input[type="submit"] {
   display: block;
 }
 
-label[class="tip"] {
-  text-align: center !important;
-}
-
 .buddiey-logo {
   max-width: 100%;
   max-height: 100%;
   text-align: center;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
