@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 // Create important variables
 const app = express(); // Our app instance
