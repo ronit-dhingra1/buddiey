@@ -40,35 +40,75 @@
   </head>
   <body>
       <main>
-        <section class="b-card">
-            <div class="card-body">
-            
-                <img src="../../img/Buddiey.gif" alt="Buddiey" class="buddiey-logo pl-3 pr-3">
-
-                <div class="signin">
-                    <h3 class="mt-2" style="font-family: 'Montserrat'; text-align: center;">Authenticate</h1>
-
-                    <form action="/auth/signin" method="POST">
-                        <div class="email form-group">
-                            <label for="email" style="font-family: 'Montserrat';">Email</label>
-                            <input type="email" name="email" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="john.doe@example.com" required>
-                        </div>
-                        
-                        <div class="password form-group mt-4">
-                            <label for="password" style="font-family: 'Montserrat';">Password</label>
-                            <input type="password" name="password" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="***********" required>
-                        </div>
-                        
-                        <% if (messages.error) { %> 
-                            <p class="error" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"><%= messages.error %></p>
-                        <% } %> 
-                        
-                        <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
-                    </form>
-                    <label for="tip" style="font-family: 'Montserrat'; ">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
+          <div id="main-container">
+            <section class="b-card">
+                <div class="card-body">
+                
+                    <img src="../../img/Buddiey.gif" alt="Buddiey" class="buddiey-logo pl-3 pr-3">
+    
+                    <div class="signin">
+                        <h3 id="title" class="mt-2" style="font-family: 'Montserrat'; text-align: center;">Authenticate</h1>
+    
+                        <form action="/auth/signin" method="POST">
+                            <div class="email form-group">
+                                <label id="email" for="email" style="font-family: 'Montserrat';">Email</label>
+                                <input type="email" name="email" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="john.doe@example.com" required>
+                            </div>
+                            
+                            <div class="password form-group mt-4">
+                                <label id="password" for="password" style="font-family: 'Montserrat';">Password</label>
+                                <input type="password" name="password" class="form-control" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);" placeholder="***********" required>
+                            </div>
+                             
+                            <p class="error error--hidden" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);"></p>
+                            
+                            <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
+                        </form>
+                        <label for="tip" style="font-family: 'Montserrat'; ">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+          </div>
       </main>
+      <script>
+          // Movement animation
+          const container = document.querySelector('#main-container');
+          const card = document.querySelector('.b-card');
+          const logo = document.querySelector('.buddiey-logo');
+          const title = document.querySelector('#title');
+          const email = document.querySelector('#email');
+          const password = document.querySelector('#password');
+          const btn = document.querySelector('.btn-b');
+
+          // Mouse moves over container
+          container.addEventListener('mousemove', (event) => {
+              let xAxis = (window.innerWidth / 2 - event.pageX) / 25;
+              let yAxis = (window.innerHeight / 2 - event.pageY) / 25;
+              card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+          });
+
+          // Animates in
+          container.addEventListener('mouseenter', (event) => {
+              card.style.transition = 'none';
+
+              // Pop out elements
+              logo.style.transform = 'translateZ(150px)';
+              title.style.transform = 'translateZ(150px)';
+              email.style.transform = 'translateZ(150px)';
+              password.style.transform = 'translateZ(150px)';
+              btn.style.transform = 'translateZ(150px)';
+          });
+
+          // Mouse leaves container
+          container.addEventListener('mouseleave', (event) => {
+              card.style.transition = 'all 0.5s ease';
+              card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+              logo.style.transform = 'translateZ(0px)';
+              title.style.transform = 'translateZ(0px)';
+              email.style.transform = 'translateZ(0px)';
+              password.style.transform = 'translateZ(0px)';
+              btn.style.transform = 'translateZ(0px)';
+          });
+      </script>
   </body>
 </html>

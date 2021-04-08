@@ -7,18 +7,8 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
-const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
-
-// Initialize passport
-const User = require('./models/User');
-const initialize = require('./passport-config');
-initialize(passport, (email) => {
-    const user = User.findOne({ email: email});
-    return user;
-});
-
 // Create important variables
 const app = express(); // Our app instance
 const port = process.env.PORT || 3000; // Our port instance
@@ -53,8 +43,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.get('/', (req, res) => res.render('chat/chat'));
 

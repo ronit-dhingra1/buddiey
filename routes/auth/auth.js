@@ -4,14 +4,30 @@ const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const { authVal } = require('../../utils/validation');
+const jwt = require('jsonwebtoken')
 
 // Get our model
 const User = require('../../models/User');
 
+// Function that verifies the token
+const isLoggedIn = (req, res, next) => {
+    const token = req.cookies['auth-token'];
+    if (!token) { return res.redirect('/auth/signin'); }
+
+    try {
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        req.user = verified;
+        next();
+    }
+    catch (error) {
+        res.status(400).send(`Invalid Token: ${error.message}`);
+    }
+}
+
 // MARK: Routes
 
 // GET on sign in page (load the view)
-router.get('/signin', isLoggedIn, (req, res) => {
+router.get('/signin', (req, res) => {
     res.render('auth/signin');
 });
 
@@ -43,7 +59,7 @@ router.post('/signin', async (req, res) => {
 });
 
 // GET on signup page (load the view)
-router.get('/signup', isLoggedIn, (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('auth/signup');
 });
 
@@ -88,21 +104,6 @@ router.post('/signup', isLoggedIn, async (req, res) => {
         res.statusMessage(400).send(`Oops, couldn't save: ${err}`);
     }
 });
-
-// Function that verifies the token
-const isLoggedIn = (req, res, next) => {
-    const token = req.cookies['auth-token'];
-    if (!token) { return res.redirect('/auth/login'); }
-
-    try {
-        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        req.user = verified;
-        next();
-    }
-    catch (error) {
-        res.status(400).send(`Invalid Token: ${error.message}`).redirect('/auth/login');
-    }
-}
 
 
 // Export our router for the main runtime file
