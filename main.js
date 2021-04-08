@@ -37,10 +37,7 @@ app.use('/auth', authRouter);
 app.use('/chat', chatRouter);
 app.use(express.static("public"));
 
-// Show the chat view
-app.get('/', (req, res) => {
-    if (true) res.render('chat/chat');
-});
+app.get('/', (req, res) => res.render('chat/chat'));
 
 app.get('/load', (req, res) => res.render('loading'));
 
