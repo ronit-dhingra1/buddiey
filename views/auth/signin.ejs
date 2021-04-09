@@ -64,7 +64,7 @@
                             
                             <input type="submit" value="Sign In" class="btn-b" style="font-family: 'Montserrat'; box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">
                         </form>
-                        <label for="tip" style="font-family: 'Montserrat'; ">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
+                        <label for="tip" style="font-family: 'Montserrat';" id="info">Click <a href="/auth/signup" style="box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);">here</a> to sign up.</label>
                     </div>
                 </div>
             </section>
@@ -79,6 +79,7 @@
           const email = document.querySelector('#email');
           const password = document.querySelector('#password');
           const btn = document.querySelector('.btn-b');
+          const info = document.querySelector('#info');
 
           // Mouse moves over container
           container.addEventListener('mousemove', (event) => {
@@ -101,6 +102,27 @@
 
           // Mouse leaves container
           container.addEventListener('mouseleave', (event) => {
+              card.style.transition = 'all 0.5s ease';
+              card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+              logo.style.transform = 'translateZ(0px)';
+              title.style.transform = 'translateZ(0px)';
+              email.style.transform = 'translateZ(0px)';
+              password.style.transform = 'translateZ(0px)';
+              btn.style.transform = 'translateZ(0px)';
+          });
+
+          // When user clicks on a button
+          btn.addEventListener('mouseclick', (event) => {
+              card.style.transition = 'all 0.5s ease';
+              card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+              logo.style.transform = 'translateZ(0px)';
+              title.style.transform = 'translateZ(0px)';
+              email.style.transform = 'translateZ(0px)';
+              password.style.transform = 'translateZ(0px)';
+              btn.style.transform = 'translateZ(0px)';
+          });
+
+          info.addEventListener('mouseenter', (event) => {
               card.style.transition = 'all 0.5s ease';
               card.style.transform = 'rotateY(0deg) rotateX(0deg)';
               logo.style.transform = 'translateZ(0px)';

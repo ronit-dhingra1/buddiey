@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
 }
 
 .error--hidden {
@@ -133,6 +134,7 @@ main {
     rgba(255, 255, 255, 0.3)
   );
   filter: drop-shadow(0rem 1.5rem 1.5rem rgba(0, 0, 0, 0.25));
+  transform-style: preserve-3d;
 }
 
 input[type="submit"] {
@@ -141,6 +143,7 @@ input[type="submit"] {
 }
 
 .buddiey-logo {
+  transform-style: preserve-3d;
   max-width: 100%;
   max-height: 100%;
   text-align: center;
@@ -148,4 +151,16 @@ input[type="submit"] {
   justify-content: center;
   filter: drop-shadow(0rem 15rem 15rem rgba(0, 0, 0, 0.25));
   transition: all 0.75s ease-out;
+}
+
+#title {
+  transform-style: preserve-3d;
+}
+
+#email {
+  transform-style: preserve-3d;
+}
+
+#password {
+  transform-style: preserve-3d;
 }
