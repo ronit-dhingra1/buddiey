@@ -40,14 +40,24 @@
               </section>
               <section class="b-card">
                 <div class="sidebar">
-                  
+                  <div id="logout">
+                    <button class="btn btn-success" onclick="logOut()">Log Out</button>
+                  </div>
+                  <div id="about" class="mt-5">
+                    <a class="btn btn-danger" href="https://www.buddiey.live">About</a>
+                  </div>
                 </div>
                 <div class="chat">
                   <div class="msgs">
-
+                      <div class="buddiey-text"></div>
+                      <div class="user-text">
+                      </div>
                   </div>
                   <div class="send-msg">
-                    
+                    <form action="/" method="POST" class="form-group">
+                      <input type="text" placeholder="Insert Message Here..." class="form-control">
+                      <input type="submit" value="Send" class="btn btn-primary">
+                    </form>
                   </div>
                 </div>
               </section>
