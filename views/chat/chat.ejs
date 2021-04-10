@@ -50,14 +50,11 @@
                 <div class="chat">
                   <div class="msgs">
                       <div class="buddiey-text"></div>
-                      <div class="user-text">
-                      </div>
+                      <div class="user-text"></div>
                   </div>
                   <div class="send-msg">
-                    <form action="/" method="POST" class="form-group">
-                      <input type="text" placeholder="Insert Message Here..." class="form-control">
-                      <input type="submit" value="Send" class="btn btn-primary">
-                    </form>
+                    <input type="text" placeholder="Insert Message Here..." class="b-field" required>
+                    <button onclick="sendMessage()" class="btn btn-primary">Send</button>
                   </div>
                 </div>
               </section>
