@@ -14,8 +14,8 @@ const app = express(); // Our app instance
 const port = process.env.PORT || 3000; // Our port instance
 
 // Import our routes
-const authRouter = require('./routes/auth/auth');
-const chatRouter = require('./routes/chat/chat');
+const authRouter = require('./routes/auth/auth.js');
+const chatRouter = require('./routes/chat/chat.js');
 
 // Configure our environment variables
 dotenv.config();
