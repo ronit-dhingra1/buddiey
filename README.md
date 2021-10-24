@@ -14,5 +14,8 @@ The informational website says it all about what there is to Buddiey, so feel fr
 
 > Buddiey was originally a science fair project created by a team known as the Buddiey Builders. It evolved to be a full-stack web application for isolated and lonely senior citizens to feel more confortable and more happy in general. The robot you talk to, Buddiey, is pre-loaded with lots of knowledge, so he knows exactly what to say, when following a very basic guideline in commands.
 
+> Disclaimer: Because of money constraints, the info website is currently down, and the web app gives a security warning because of an expired SSL cert. We are sorry for this inconvience that wasn't present before, and we hope you have a good day. 
+
 
 [Informational Website](https://www.buddiey.live)
+
